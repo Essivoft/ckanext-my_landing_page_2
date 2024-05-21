@@ -20,15 +20,15 @@
     <h2>Dataportal statistics</h2>
     <div class="stats">
       <div class="stat">
-        <span class="number">{{ h.get_stat('package_count') }}</span>
+        <span class="number">{{ h.dataset_count() }}</span>
         <span class="label">Datasets</span>
       </div>
       <div class="stat">
-        <span class="number">{{ h.get_stat('organization_count') }}</span>
+        <span class="number">{{ h.organization_count() }}</span>
         <span class="label">Organizations</span>
       </div>
       <div class="stat">
-        <span class="number">{{ h.get_stat('group_count') }}</span>
+        <span class="number">{{ h.group_count() }}</span>
         <span class="label">Groups</span>
       </div>
     </div>

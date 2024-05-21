@@ -1,5 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from ckanext.my_landing_page.controller.landing_page import MyController
 
 class MyLandingPagePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
@@ -11,5 +12,5 @@ class MyLandingPagePlugin(plugins.SingletonPlugin):
         toolkit.add_resource('fanstatic', 'my_landing_page')
 
     def before_map(self, map):
-        map.connect('home', '/', controller='ckanext.my_landing_page.controller:MyController', action='index')
+        map.connect('home', '/', controller='ckanext.my_landing_page.controller.landing_page:MyController', action='index')
         return map

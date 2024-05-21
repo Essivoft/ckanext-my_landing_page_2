@@ -1,0 +1,7 @@
+
+        [ckan.plugins]
+        my_landing_page=ckanext.my_landing_page.plugin:My_Landing_PagePlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+    

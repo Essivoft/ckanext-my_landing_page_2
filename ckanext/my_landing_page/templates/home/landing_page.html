@@ -1,0 +1,54 @@
+{% extends "page.html" %} {% block content %}
+<div class="home">
+  <div class="search-section">
+    <form
+      action="{{ h.url_for(controller='package', action='search') }}"
+      method="get"
+    >
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search datasets..."
+          name="q"
+        />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Search</button>
+        </span>
+      </div>
+    </form>
+  </div>
+
+  <div class="statistics-section">
+    <h2>Dataportal statistics</h2>
+    <div class="stats">
+      <div class="stat">
+        <span class="number">{{ h.get_stat('package_count') }}</span>
+        <span class="label">Datasets</span>
+      </div>
+      <div class="stat">
+        <span class="number">{{ h.get_stat('organization_count') }}</span>
+        <span class="label">Organizations</span>
+      </div>
+      <div class="stat">
+        <span class="number">{{ h.get_stat('group_count') }}</span>
+        <span class="label">Groups</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="groups-section">
+    <h2>Available Groups</h2>
+    <div class="groups">
+      {% for group in h.group_list(limit=20) %}
+      <div class="group">
+        <a href="{{ h.url_for('group_read', id=group.name) }}">
+          <img src="{{ group.image_url }}" alt="{{ group.title }}" />
+          <span>{{ group.title }}</span>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

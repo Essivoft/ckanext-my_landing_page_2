@@ -1,9 +1,4 @@
 {% extends "page.html" %} {% block content %}
-<style>
-  body {
-    background-color: lightblue;
-  }
-</style>
 <div class="home">
   <div class="search-section">
     <form action="{{ h.url_for('dataset.search') }}" method="get">
@@ -42,6 +37,17 @@
       </li>
       {% endfor %}
     </ul>
+  </div>
+
+  <div class="main module-feeds">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">{% include 'snippets/featured_group.html' %}</div>
+        <div class="col-md-6">
+          {% include 'snippets/featured_organization.html' %}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

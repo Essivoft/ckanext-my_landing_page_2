@@ -1,3 +1,7 @@
+body {
+  background-color: #fff !important;
+}
+
 .home {
   padding: 20px;
 }
@@ -18,7 +22,7 @@
   gap: 20px;
   list-style: none;
   padding: 0;
-  background-color: brown;
+  background: fffaf0;
 }
 
 .media-item {
@@ -33,12 +37,13 @@
 
 .media-item:hover {
   transform: translateY(-5px);
-  background-color: blue;
+  background-color: rgb(65, 118, 171);
+  color: white;
 }
 
 .media-item-link {
   text-decoration: none;
-  color: inherit;
+  color: black;
 }
 
 .media-item-img {
@@ -48,12 +53,32 @@
   margin: 0 auto;
 }
 
+.media-item-img:hover {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+
 .media-item-info {
   padding: 10px;
+  color: black;
+}
+
+.media-item-info:hover {
+  color: white;
 }
 
 .media-item-title {
   display: block;
   font-size: 16px;
-  color: #ff0000;
+  color: black;
+}
+
+.media-item.media-item-title:hover {
+  display: block;
+  font-size: 16px;
+  color: white;
+}
+
+.media-item-link:hover {
+  color: white;
 }

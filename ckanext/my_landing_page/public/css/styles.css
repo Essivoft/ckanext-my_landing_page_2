@@ -1,3 +1,8 @@
+body {
+  background-color: lightblue;
+}
+
+/* Legg til resten av CSS-reglene her */
 .home {
   padding: 20px;
 }

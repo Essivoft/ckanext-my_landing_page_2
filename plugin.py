@@ -18,10 +18,22 @@ class MyLandingPagePlugin(plugins.SingletonPlugin):
 
     def get_helpers(self):
         return {
-            'my_group_list': self.my_group_list
+            'my_group_list': self.my_group_list,
+            'get_featured_organizations': self.get_featured_organizations,
+            'get_featured_groups': self.get_featured_groups,
         }
 
     def my_group_list(self, limit=20):
         context = {'user': toolkit.c.user}
         data_dict = {'all_fields': True, 'limit': limit}
+        return toolkit.get_action('group_list')(context, data_dict)
+
+    def get_featured_organizations(self):
+        context = {'user': toolkit.c.user}
+        data_dict = {'limit': 5, 'featured': True}  # Customize the limit as needed
+        return toolkit.get_action('organization_list')(context, data_dict)
+
+    def get_featured_groups(self):
+        context = {'user': toolkit.c.user}
+        data_dict = {'limit': 5, 'featured': True}  # Customize the limit as needed
         return toolkit.get_action('group_list')(context, data_dict)

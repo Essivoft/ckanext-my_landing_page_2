@@ -1,5 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from ckanext.my_landing_page.controller.landing_page import MyController
 
 class MyLandingPagePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)

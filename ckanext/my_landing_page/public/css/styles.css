@@ -1,8 +1,3 @@
-body {
-  background-color: lightblue;
-}
-
-/* Legg til resten av CSS-reglene her */
 .home {
   padding: 20px;
 }
@@ -16,35 +11,49 @@ body {
   text-align: center;
 }
 
-.groups-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.media-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  padding: 20px;
-  justify-items: center;
+  list-style: none;
+  padding: 0;
+  background-color: brown;
 }
 
-.group-item {
+.media-item {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s;
+  width: 200px;
 }
 
-.group-item:hover {
+.media-item:hover {
   transform: translateY(-5px);
+  background-color: blue;
 }
 
-.group-image {
-  max-width: 100px;
-  margin-top: 10px;
+.media-item-link {
+  text-decoration: none;
+  color: inherit;
 }
 
-.group-title {
+.media-item-img {
+  max-width: 100%;
+  height: auto;
   display: block;
+  margin: 0 auto;
+}
+
+.media-item-info {
   padding: 10px;
+}
+
+.media-item-title {
+  display: block;
   font-size: 16px;
-  color: #333;
+  color: #ff0000;
 }

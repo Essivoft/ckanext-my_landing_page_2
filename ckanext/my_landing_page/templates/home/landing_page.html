@@ -18,20 +18,25 @@
 
   <div class="groups-section">
     <h2>Groups</h2>
-    <div class="groups-grid">
+    <ul class="media-grid">
       {% for group in h.my_group_list(limit=20) %}
-      <div class="group-item">
-        <a href="{{ h.url_for('group_read', id=group.name) }}">
+      <li class="media-item">
+        <a
+          href="{{ h.url_for('group_read', id=group.name) }}"
+          class="media-item-link"
+        >
           <img
             src="{{ group.image_display_url }}"
             alt="{{ group.title }}"
-            class="group-image"
+            class="media-item-img"
           />
-          <span class="group-title">{{ group.title }}</span>
+          <div class="media-item-info">
+            <span class="media-item-title">{{ group.title }}</span>
+          </div>
         </a>
-      </div>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
   </div>
 </div>
 {% endblock %}

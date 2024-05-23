@@ -10,7 +10,7 @@ class MyLandingPagePlugin(plugins.SingletonPlugin):
     def update_config(self, config):
         toolkit.add_template_directory(config, 'templates')
         toolkit.add_public_directory(config, 'public')
-        toolkit.add_resource('fanstatic', 'my_landing_page')
+        toolkit.add_resource('public', 'my_landing_page')
 
     def before_map(self, map):
         map.connect('home', '/', controller='ckanext.my_landing_page.controller.landing_page:MyController', action='index')

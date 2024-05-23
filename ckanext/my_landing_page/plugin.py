@@ -1,7 +1,5 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-from ckanext.my_landing_page.controller.landing_page import MyController
-from ckan.model.group import Group
 
 class MyLandingPagePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
@@ -23,6 +21,6 @@ class MyLandingPagePlugin(plugins.SingletonPlugin):
         }
 
     def my_group_list(self, limit=20):
-        context = {'model': Group, 'session': Group.session, 'user': toolkit.c.user}
+        context = {'user': toolkit.c.user}
         data_dict = {'all_fields': True, 'limit': limit}
         return toolkit.get_action('group_list')(context, data_dict)

@@ -46,19 +46,12 @@
 
   <div class="featured-organization-section">
     <h2>Featured Organization</h2>
-    {% set organizations = h.get_featured_organizations() %} {% for organization
-    in organizations %}
-    <div class="box">
-      {% snippet 'snippets/organization_item.html', organization=organization %}
-    </div>
-    {% endfor %}
+    {% include 'snippets/featured_organization.html' %}
   </div>
 
   <div class="featured-group-section">
     <h2>Featured Group</h2>
-    {% set groups = h.get_featured_groups() %} {% for group in groups %}
-    <div class="box">{% snippet 'snippets/group_item.html', group=group %}</div>
-    {% endfor %}
+    {% include 'snippets/featured_group.html' %}
   </div>
 </div>
 {% endblock %}

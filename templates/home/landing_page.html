@@ -1,0 +1,47 @@
+{% extends "page.html" %} {% block content %}
+<style>
+  body {
+    background-color: lightblue;
+  }
+</style>
+<div class="home">
+  <div class="search-section">
+    <form action="{{ h.url_for('dataset.search') }}" method="get">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search datasets..."
+          name="q"
+        />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Search</button>
+        </span>
+      </div>
+    </form>
+  </div>
+
+  <div class="groups-section">
+    <h2>Groups</h2>
+    <ul class="media-grid">
+      {% for group in h.my_group_list(limit=20) %}
+      <li class="media-item">
+        <a
+          href="{{ h.url_for('group_read', id=group.name) }}"
+          class="media-item-link"
+        >
+          <img
+            src="{{ group.image_display_url }}"
+            alt="{{ group.title }}"
+            class="media-item-img"
+          />
+          <div class="media-item-info">
+            <span class="media-item-title">{{ group.title }}</span>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

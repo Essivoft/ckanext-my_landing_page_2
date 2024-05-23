@@ -1,5 +1,4 @@
 {% extends "page.html" %} {% block content %}
-
 <div class="home">
   <div class="search-section">
     <form action="{{ h.url_for('dataset.search') }}" method="get">
@@ -20,10 +19,10 @@
   <div class="groups-section">
     <h2>Groups</h2>
     <div class="groups">
-      {% for group in h.group_list(limit=20) %}
+      {% for group in h.my_group_list(limit=20) %}
       <div class="group">
         <a href="{{ h.url_for('group_read', id=group.name) }}">
-          <img src="{{ group.image_url }}" alt="{{ group.title }}" />
+          <img src="{{ group.image_display_url }}" alt="{{ group.title }}" />
           <span>{{ group.title }}</span>
         </a>
       </div>
@@ -31,5 +30,4 @@
     </div>
   </div>
 </div>
-
 {% endblock %}

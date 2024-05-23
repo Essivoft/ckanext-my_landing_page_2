@@ -1,4 +1,5 @@
 {% extends "page.html" %} {% block content %}
+
 <div class="home">
   <div class="search-section">
     <form action="{{ h.url_for('dataset.search') }}" method="get">
@@ -16,26 +17,8 @@
     </form>
   </div>
 
-  <div class="statistics-section">
-    <h2>Dataportal statistics</h2>
-    <div class="stats">
-      <div class="stat">
-        <span class="number">{{ h.dataset_count() }}</span>
-        <span class="label">Datasets</span>
-      </div>
-      <div class="stat">
-        <span class="number">{{ h.organization_count() }}</span>
-        <span class="label">Organizations</span>
-      </div>
-      <div class="stat">
-        <span class="number">{{ h.group_count() }}</span>
-        <span class="label">Groups</span>
-      </div>
-    </div>
-  </div>
-
   <div class="groups-section">
-    <h2>Available Groups</h2>
+    <h2>Groups</h2>
     <div class="groups">
       {% for group in h.group_list(limit=20) %}
       <div class="group">
@@ -48,4 +31,5 @@
     </div>
   </div>
 </div>
+
 {% endblock %}
